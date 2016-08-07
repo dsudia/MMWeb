@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import {RouteConfig} from "@angular/router-deprecated";
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from "@angular/router";
-import {HTTP_PROVIDERS} from "@angular/http";
+import { HTTP_PROVIDERS } from "@angular/http";
 
 @Component({
     selector: 'my-app',
