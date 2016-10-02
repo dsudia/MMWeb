@@ -54,9 +54,7 @@ var UserService = (function () {
         console.log(this.user.token);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.put(
-        // Config.apiUrl + 'matches/interest',
-        JSON.stringify({
+        return this._http.put(config_1.Config.apiUrl + 'matches/interest', JSON.stringify({
             token: this.user.token,
             interestedIn: profileEmail || this.user.currentlyViewingProfile,
         }), {
@@ -69,9 +67,7 @@ var UserService = (function () {
         console.log(this.user.token);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.put(
-        // Config.apiUrl + 'matches/uninterest',
-        JSON.stringify({
+        return this._http.put(config_1.Config.apiUrl + 'matches/uninterest', JSON.stringify({
             token: this.user.token,
             uninterestedIn: profileEmail || this.user.currentlyViewingProfile,
         }), {
@@ -82,9 +78,7 @@ var UserService = (function () {
     UserService.prototype.loginUser = function (loginEmail, loginPass) {
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
-        return this._http.post(
-        // Config.apiUrl + "auth/login",
-        JSON.stringify({
+        return this._http.post(config_1.Config.apiUrl + "auth/login", JSON.stringify({
             email: loginEmail,
             password: loginPass
         }), { headers: headers })

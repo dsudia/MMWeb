@@ -2,7 +2,7 @@
 var Config = (function () {
     function Config() {
     }
-    Config.apiUrl = "http://52.53.185.96/";
+    Config.apiUrl = "http://107.21.83.61:8004/";
     return Config;
 }());
 exports.Config = Config;

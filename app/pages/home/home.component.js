@@ -9,24 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var userService_1 = require('../shared/User/userService');
-var AppComponent = (function () {
-    function AppComponent(UserService) {
-        this.UserService = UserService;
+var HomePage = (function () {
+    function HomePage() {
         this.title = 'Montessori Match';
     }
-    AppComponent.prototype.ngOnInit = function () {
+    HomePage.prototype.ngOnInit = function () {
         console.log('Initialized');
     };
-    AppComponent = __decorate([
+    HomePage = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<h1>My Second Angular2 App<h1>',
-            providers: [userService_1.UserService]
+            selector: 'home',
+            template: 'pages/home/home.html',
         }), 
-        __metadata('design:paramtypes', [userService_1.UserService])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [])
+    ], HomePage);
+    return HomePage;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HomePage = HomePage;
+//# sourceMappingURL=home.component.js.map
