@@ -11,6 +11,6 @@ export class HomePage implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        console.log('Initialized')
+        console.log('Initialized');
     }
 }

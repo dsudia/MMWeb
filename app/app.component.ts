@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/User/user'
-import { UserService } from '../shared/User/userService'
+import { UserService } from '../shared/User/userService';
 
 @Component({
     selector: 'my-app',
@@ -14,6 +13,6 @@ export class AppComponent implements OnInit {
     constructor(private UserService: UserService) { }
 
     ngOnInit() {
-        console.log('Initialized')
+        console.log('Initialized');
     }
 }
