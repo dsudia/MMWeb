@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../shared/User/userService';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My Second Angular2 App<h1>',
-    providers: [UserService]
+    template: '<h1>My Second Angular2 App<h1>'
 })
 
 export class AppComponent implements OnInit {
     title = 'Montessori Match';
 
-    constructor(private UserService: UserService) { }
+    constructor() { }
 
     ngOnInit() {
         console.log('Initialized');

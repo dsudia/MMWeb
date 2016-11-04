@@ -9,10 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var userService_1 = require('../shared/User/userService');
 var AppComponent = (function () {
-    function AppComponent(UserService) {
-        this.UserService = UserService;
+    function AppComponent() {
         this.title = 'Montessori Match';
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -21,10 +19,9 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>My Second Angular2 App<h1>',
-            providers: [userService_1.UserService]
+            template: '<h1>My Second Angular2 App<h1>'
         }), 
-        __metadata('design:paramtypes', [userService_1.UserService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
