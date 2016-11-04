@@ -36,11 +36,15 @@
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@angular/upgrade/-/upgrade-2.1.2.tgz#fc9423f87fcae418a0ae3b8d56c615d93563d44f"
 
-"@types/core-js@^0.9.34":
+"@types/core-js":
   version "0.9.34"
   resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.34.tgz#72c521d8e59fdaa8b65f76db71fa53c82c7c21c5"
 
-"@types/node@^6.0.45":
+"@types/jasmine":
+  version "2.5.37"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.37.tgz#15f16040b1106941ec4aeefa3cd9c55342a0dcbb"
+
+"@types/node":
   version "6.0.46"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.46.tgz#8d9e48572831f05b11cc4c793754d43437219d62"
 
