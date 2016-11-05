@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  width: 60%;
+  margin: auto;
+}
+img {
+  width: 100%;
+}
