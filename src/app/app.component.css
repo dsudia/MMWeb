@@ -2,10 +2,9 @@ main {
   display: flex;
   flex-flow: column;
   width: 100%;
-}
-
-h1 {
-  text-align: center;
+  height: 100vh;
+  background-color: #40abfc;
+  margin: -40 -40;
 }
 
 a {
