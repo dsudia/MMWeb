@@ -67,7 +67,7 @@
     ],
     "radix": true,
     "semicolon": [
-      "always"
+      ""
     ],
     "triple-equals": [
       true,
