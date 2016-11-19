@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files 
+
+dk blue ~ 002eda
+light blue ~ 40abfc
+orange ~ ff6600
+
+pink ~ ff66e6
+yellow ~ fff200
+green ~ 40f200
+red ~ f20000
+brown ~ 7c4d26
+*/
+html {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #002eda;
+}
