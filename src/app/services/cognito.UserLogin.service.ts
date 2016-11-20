@@ -6,7 +6,7 @@ declare let AWS: any;
 declare let AWSCognito: any;
 
 @Injectable()
-export class UserLoginService {
+export default class UserLoginService {
     static authenticate(username: string, password: string, callback: CognitoCallback): void {
         // Need to provide placeholder keys unless unahtorised user access is enabled for user pool
         AWSCognito.config.update({accessKeyId: 'anything', secretAccessKey: 'anything'})
@@ -104,6 +104,4 @@ export class UserLoginService {
             }
         }, callbackWithParam() {}})
     }
-
-    constructor() {}
 }
