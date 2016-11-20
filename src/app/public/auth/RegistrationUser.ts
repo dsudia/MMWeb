@@ -1,5 +1,7 @@
 export default class RegistrationUser {
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
+    username: string;
 }

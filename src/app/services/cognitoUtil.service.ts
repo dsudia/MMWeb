@@ -1,5 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
-import RegistrationUser from '../public/auth/RegistrationUser';
+import { Injectable } from '@angular/core';
 
 declare let AWS: any;
 declare let AWSCognito: any;
@@ -46,10 +45,18 @@ export class CognitoUtil {
         if (callback === null) {
             throw('callback in getAccessToken is nul ... returning')
         }
-        CognitoUtil.getCurrentUser().getSession(function(serr, session) {
+        CognitoUtil.getCurrentUser().getSession(function(err, session) {
             if (err) {
-                console.log(`Can't set the credentials: ${err}`)
+                console.log(`Can't set the credentials: ${err}`);
+                callback.callbackWithParam(null);
+            } else {
+                if (session.isValid()) {
+                    callback.callbackWithParam(session.getIdToken().getJwtToken());
+                } else {
+                    console.log('Got the id token, but the session is not valid');
+                }
             }
-        })
+        });
     }
+
 }

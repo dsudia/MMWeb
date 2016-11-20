@@ -8,7 +8,5 @@ export class AWSUtil {
     public static firstLogin: boolean = false;
     public static runningInit: boolean = false;
 
-    static initAwsService(callback: Callback) {
-        
-    }
+    static initAwsService(callback: Callback) {}
 }
