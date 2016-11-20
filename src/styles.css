@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files 
+/* You can add global styles to this file, and also import other style files
 
 dk blue ~ 002eda
 light blue ~ 40abfc
@@ -23,4 +23,36 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #002eda;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-none {
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }

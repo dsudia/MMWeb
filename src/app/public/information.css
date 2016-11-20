@@ -4,6 +4,7 @@ main {
     width: 80%;
     height: 90%;
     margin: 2rem auto;
+    text-align: center;
 }
 
 section {
@@ -17,20 +18,26 @@ section {
 
 #description {
     height: 35%;
+    flex-flow: column;
+    /*display: none;*/
 }
 
 article {
     width: 50%;
     height: 100%;
     flex: 1;
-    text-align: center;
     display: flex;
     cursor: pointer;
 }
 
-h1 {
+article h1 {
     margin: auto;
     color: white;
+}
+
+#description h1 {
+  color: black;
+  margin: auto;
 }
 
 #teacher {
