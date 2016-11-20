@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Callback, CognitoUtil } from './cognitoUtil.service';
 
 @Injectable()
-export class UserParametersService {
+export default class UserParametersService {
     static getParameters(callback: Callback) {
         const cognitoUser = CognitoUtil.getCurrentUser();
 

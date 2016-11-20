@@ -7,7 +7,7 @@ import { CognitoCallback, CognitoUtil, LoggedInCallback } from '../../../service
     selector: 'app-login',
     templateUrl: './login.html'
 })
-export class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit {
+export default class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit {
     email: string;
     password: string;
     errorMessage: string;
@@ -16,7 +16,7 @@ export class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit
 
     isLoggedIn(message: string, isLoggedIn: boolean) {
         if (isLoggedIn) {
-            this.router.navigate(['/secureHome']);
+            this.router.navigate(['/myprofile']);
         }
     }
 
@@ -46,7 +46,7 @@ export class LoginComponent implements CognitoCallback, LoggedInCallback, OnInit
             this.errorMessage = message;
             console.log(`error: ${this.errorMessage}`);
         } else {
-            this.router.navigate(['/secureHome']);
+            this.router.navigate(['/myprofile']);
         }
     }
 }

@@ -1,13 +1,13 @@
-import { Injectable, Inject } from "@angular/core";
-import RegistrationUser from '../public/auth/RegistrationUser';
+import { Injectable, Inject } from '@angular/core';
+import { RegistrationUser } from '../types/classes';
 import { CognitoCallback, CognitoUtil } from './cognitoUtil.service'
 
-declare let AWS:any;
-declare let AWSCognito:any
+declare let AWS: any;
+declare let AWSCognito: any
 
 @Injectable()
 export class UserRegistrationService {
-    constructor(@Inject(CognitoUtil) public cognitoConfigs:CognitoUtil) {}
+    constructor(@Inject(CognitoUtil) public cognitoConfigs: CognitoUtil) {}
 
     register(user: RegistrationUser, callback: CognitoCallback): void {
         console.log(`user: ${user}`);
@@ -39,7 +39,7 @@ export class UserRegistrationService {
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataFirstName));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataLastName));
 
-        CognitoUtil.getUserPool().signUp(user.email user.password, attributeList, null, function(err, result) {
+        CognitoUtil.getUserPool().signUp(user.email, user.password, attributeList, null, function(err, result) {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {

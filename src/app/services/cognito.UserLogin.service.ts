@@ -102,6 +102,6 @@ export default class UserLoginService {
             } else {
                 callback.isLoggedIn('Cannot retrieve the current user.', false);
             }
-        }, callbackWithParam() {}})
+        }, callbackWithParam(cognitoUser) {}})
     }
 }
