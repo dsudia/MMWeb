@@ -19,7 +19,7 @@ export interface Callback {
 @Injectable()
 export class CognitoUtil {
     public static _REGION = 'us-east-1';
-    
+
     public static _IDENTITY_POOL_ID = 'us-east-1:1589ee70-aa37-4e78-a753-05ecdd3689a3';
     public static _USER_POOL_ID = 'us-east-1_hodxY4XR9';
     public static _CLIENT_ID = '66e6j6i6pobdifulaqmasiuqs3';

@@ -10,10 +10,10 @@ export class UserParametersService {
             cognitoUser.getSession(function(err, session) {
                 if (err) {
                     console.log('Could not retrieve the user.');
-                } else { 
-                    cognitoUser.getUserAttributes(function(err, result) {
-                        if (err) {
-                            console.log(`Error in parameters: ${err}`);
+                } else {
+                    cognitoUser.getUserAttributes(function(error, result) {
+                        if (error) {
+                            console.log(`Error in parameters: ${error}`);
                         } else {
                             callback.callbackWithParam(result);
                         }
