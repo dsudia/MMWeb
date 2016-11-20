@@ -9,7 +9,6 @@ main {
 section {
     width: 100%;
     display: flex;
-    border: 1px solid black;
 }
 
 #user {
@@ -26,16 +25,24 @@ article {
     flex: 1;
     text-align: center;
     display: flex;
+    cursor: pointer;
 }
 
 h1 {
     margin: auto;
+    color: white;
 }
 
 #teacher {
-    background: url('./weekend_work.jpg');
+    background: url('app/public/images/teachers/weekend_work.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #school {
-    background-image: url('./images/schools/books.jpeg');
+    background: url('app/public/images/schools/books.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
