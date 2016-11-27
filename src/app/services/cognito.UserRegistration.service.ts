@@ -34,10 +34,22 @@ export class UserRegistrationService {
             Value: user.lastName
         };
 
+        const dataIsTeacher = {
+            Name: 'isTeacher',
+            Value: user.isTeacher
+        }
+
+        const dataId = {
+            Name: 'id',
+            Value: user.id
+        }
+
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataFirstName));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataLastName));
+        attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataIsTeacher));
+        attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataId));
 
         CognitoUtil.getUserPool().signUp(user.email, user.password, attributeList, null, function(err, result) {
             if (err) {

@@ -4,6 +4,9 @@ import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './public/landing.component';
 import { LegalComponent } from './public/legal.component';
+import LoginComponent from './public/auth/LoginComponent/login.component';
+import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
+import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
 
 const landingRoutes: Routes = [
     {
@@ -17,6 +20,21 @@ const landingRoutes: Routes = [
     }
 ];
 
+const authRoutes: Routes = [
+  {
+      path: 'login',
+      component: LoginComponent
+  },
+  {
+      path: 'register-school',
+      component: RegisterSchoolComponent
+  },
+  {
+      path: 'register-teacher',
+      component: RegisterTeacherComponent
+  }
+]
+
 const legalRoutes: Routes = [
     {
         path: 'legal',
@@ -29,10 +47,11 @@ const routes: Routes = [
         path: '',
         component: AppComponent,
         children: [
+            ...authRoutes,
             ...landingRoutes,
             ...legalRoutes
         ]
     }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes); 
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
