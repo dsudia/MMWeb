@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid'
-import { UserRegistrationService } from '../../../services/cognito.UserRegistration.service'
+import UserRegistrationService from '../../../services/cognito.UserRegistration.service'
 import { CognitoCallback, CognitoUtil } from '../../../services/cognitoUtil.service';
 import { RegistrationUser } from '../../../types/classes'
 

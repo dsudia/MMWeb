@@ -9,6 +9,11 @@ import { LegalComponent } from './public/legal.component';
 import LoginComponent from './public/auth/LoginComponent/login.component';
 import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
 import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
+import AWSUtil from './services/aws.service'
+import { CognitoUtil } from './services/cognitoUtil.service'
+import UserLoginService from './services/cognito.UserLogin.service'
+import UserParametersService from './services/cognito.UserParameters.service'
+import UserRegistrationService from './services/cognito.UserRegistration.service'
 import { routing } from './app.routes';
 
 @NgModule({
@@ -26,7 +31,12 @@ import { routing } from './app.routes';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [
+    UserRegistrationService,
+    UserLoginService,
+    UserParametersService,
+    CognitoUtil,
+    AWSUtil],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

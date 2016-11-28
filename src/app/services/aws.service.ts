@@ -5,7 +5,7 @@ declare let AWS: any;
 declare let AWSCognito: any;
 
 @Injectable()
-export class AWSUtil {
+export default class AWSUtil {
     public static firstLogin: boolean = false;
     public static runningInit: boolean = false;
 

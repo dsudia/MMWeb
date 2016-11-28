@@ -7,7 +7,7 @@ declare let AWS: any;
 declare let AWSCognito: any
 
 @Injectable()
-export class UserRegistrationService {
+export default class UserRegistrationService {
     constructor(@Inject(CognitoUtil) public cognitoConfigs: CognitoUtil) {}
 
     register(user: RegistrationUser, callback: CognitoCallback): void {
