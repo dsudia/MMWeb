@@ -11,7 +11,7 @@ import { RegistrationUser } from '../../../types/classes'
  */
 @Component({
   selector: `app-register`,
-  templateUrl: './register-school.html'
+  templateUrl: './register-teacher.html'
 })
 export default class RegisterTeacherComponent implements CognitoCallback {
   registrationUser: RegistrationUser;
