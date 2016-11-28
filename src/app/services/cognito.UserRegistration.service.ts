@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { RegistrationUser } from '../types/classes';
 import { CognitoCallback, CognitoUtil } from './cognitoUtil.service'
+import UserLoginService from './cognito.UserLogin.service'
 
 declare let AWS: any;
 declare let AWSCognito: any
@@ -55,6 +56,7 @@ export class UserRegistrationService {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {
+                UserLoginService.authenticate(user.email, user.password, callback)
                 console.log(`registered user: ${result}`)
                 callback.cognitoCallback(null, result);
             }

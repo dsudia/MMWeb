@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid'
 import { UserRegistrationService } from '../../../services/cognito.UserRegistration.service'
+import UserLoginService from '../../../services/cognito.UserLogin.service'
 import { CognitoCallback, CognitoUtil } from '../../../services/cognitoUtil.service';
 import { RegistrationUser } from '../../../types/classes'
 
@@ -42,7 +43,7 @@ export default class RegisterSchoolComponent implements CognitoCallback {
       console.log(`result: ${this.errorMessage}`)
     } else {
       console.log(`redirecting`)
-      this.router.navigate([`/login`], result.user.username)
+      this.router.navigate([`/myprofile`], result.user.username)
     }
   }
 }
