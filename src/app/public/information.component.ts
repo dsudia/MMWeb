@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class InformationComponent {
-  description = "";
+  description_content = "<p>Click a profile type above <i class='fa fa-hand-o-up' aria-hidden='true'></i>to learn more</p>";
 
   showTeacherDescription() {
     console.log('teacher description');
