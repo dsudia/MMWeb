@@ -7,17 +7,22 @@ import { Component } from '@angular/core';
 })
 
 export class InformationComponent {
-  description_content = "<p>Click a profile type above <i class='fa fa-hand-o-up' aria-hidden='true'></i>to learn more</p>";
+  description_hidden = false;
+  school_hidden = true;
+  teacher_hidden = true;
 
   showTeacherDescription() {
     console.log('teacher description');
+    this.description_hidden = true;
+    this.school_hidden = true;
+    this.teacher_hidden = false;
   }
 
   showSchoolDescription() {
     console.log('school description');
+    this.description_hidden = true;
+    this.school_hidden = false;
+    this.teacher_hidden = true;
   }
 
-  showDescription(type) {
-    console.log('clicked', type);
-  }
 }

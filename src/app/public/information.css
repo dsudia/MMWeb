@@ -57,3 +57,7 @@ article h1 {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.display-none {
+  display: none;
+}
