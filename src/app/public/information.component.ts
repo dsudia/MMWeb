@@ -12,14 +12,12 @@ export class InformationComponent {
   teacher_hidden = true;
 
   showTeacherDescription() {
-    console.log('teacher description');
     this.description_hidden = true;
     this.school_hidden = true;
     this.teacher_hidden = false;
   }
 
   showSchoolDescription() {
-    console.log('school description');
     this.description_hidden = true;
     this.school_hidden = false;
     this.teacher_hidden = true;
