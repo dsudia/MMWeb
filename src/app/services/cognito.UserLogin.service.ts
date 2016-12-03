@@ -28,10 +28,11 @@ export default class UserLoginService {
 
         console.log(AWS.config)
         cognitoUser.authenticateUser(authenticationDetails, {
-            onSuccess: function(result) {
+            onSuccess: function authenticateSuccess(result) {
+                console.log(result)
                 callback.cognitoCallback(null, result);
             },
-            onFailure: function(err) {
+            onFailure: function authenticateFailure(err) {
                 callback.cognitoCallback(err.message, null)
             }
         });
@@ -46,10 +47,10 @@ export default class UserLoginService {
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         cognitoUser.forgotPassword({
-            onSuccess: function(result) {
+            onSuccess: function forgotPassSuccess(result) {
                 callback.cognitoCallback(null, result);
             },
-            onFailure: function(err) {
+            onFailure: function forgotPassFailure(err) {
                 callback.cognitoCallback(err.message, null);
             },
             inputVerificationCode() {
@@ -58,19 +59,19 @@ export default class UserLoginService {
         });
     }
 
-    static confirmNewPassword(email: string, verificationCode: string, password: string, callback: CognitoCallback): void {
+    static confirmNewPassword(username: string, verificationCode: string, password: string, callback: CognitoCallback): void {
         const userData = {
-            Username: email,
+            Username: username,
             Pool: CognitoUtil.getUserPool()
         };
 
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         cognitoUser.forgotPassword({
-            onSuccess: function(result) {
+            onSuccess: function confirmForgotPassSuccess(result) {
                 callback.cognitoCallback(null, result);
             },
-            onFailure: function(err) {
+            onFailure: function confirmForgotPassFailure(err) {
                 callback.cognitoCallback(err.message, null);
             }
         });
@@ -90,7 +91,7 @@ export default class UserLoginService {
             const cognitoUser = CognitoUtil.getCurrentUser();
 
             if (cognitoUser !== null) {
-                cognitoUser.getSession(function(err, session) {
+                cognitoUser.getSession(function initGetSession(err, session) {
                     if (err) {
                         console.log(`Couldn't get the session: ${err}`);
                         callback.isLoggedIn(err, false);

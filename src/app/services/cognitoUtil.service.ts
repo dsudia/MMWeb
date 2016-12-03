@@ -21,8 +21,8 @@ export class CognitoUtil {
     public static _REGION = 'us-east-1';
 
     public static _IDENTITY_POOL_ID = 'us-east-1:1589ee70-aa37-4e78-a753-05ecdd3689a3';
-    public static _USER_POOL_ID = 'us-east-1_hodxY4XR9';
-    public static _CLIENT_ID = '66e6j6i6pobdifulaqmasiuqs3';
+    public static _USER_POOL_ID = 'us-east-1_ANxSTN6XS';
+    public static _CLIENT_ID = '61hk09r83e3vhcgu5pner49q3v';
 
     public static _POOL_DATA = {
         UserPoolId: CognitoUtil._USER_POOL_ID,
@@ -30,7 +30,7 @@ export class CognitoUtil {
     }
 
     public static getUserPool() {
-        return AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(CognitoUtil._POOL_DATA);
+        return new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(CognitoUtil._POOL_DATA);
     }
 
     public static getCurrentUser() {
@@ -43,20 +43,51 @@ export class CognitoUtil {
 
     public static getAccessToken(callback: Callback): void {
         if (callback === null) {
-            throw('callback in getAccessToken is nul ... returning')
+            throw('callback in getAccessToken is null ... returning')
         }
-        CognitoUtil.getCurrentUser().getSession(function(err, session) {
+        CognitoUtil.getCurrentUser().getSession(function getSessionCallback(err, session) {
             if (err) {
                 console.log(`Can't set the credentials: ${err}`);
                 callback.callbackWithParam(null);
             } else {
                 if (session.isValid()) {
-                    callback.callbackWithParam(session.getIdToken().getJwtToken());
-                } else {
-                    console.log('Got the id token, but the session is not valid');
+                  callback.callbackWithParam(session.getAccessToken().getJwtToken());
                 }
             }
         });
     }
 
+    public static getIdToken(callback: Callback): void {
+      if (callback === null) {
+        throw('callback in getIdToken is null ... returning');
+      }
+      CognitoUtil.getCurrentUser().getSession(function getSessionCallback(err, session) {
+        if (err) {
+          console.log(`Can't set the credentials: ${err}`);
+          callback.callbackWithParam(null)
+        } else {
+          if (session.isValid()) {
+            callback.callbackWithParam(session.getIdToken().getJwtToken());
+          } else {
+            console.log(`Got the id token, but the session isn't valid`);
+          }
+        }
+      });
+    }
+
+    public static getRefreshToken(callback: Callback): void {
+      if (callback === null) {
+        throw(`callback in getRefreshToken is null ... returning`);
+      }
+      CognitoUtil.getCurrentUser().getSession(function getSessionCallback(err, session) {
+        if (err) {
+          console.log(`Can't set the credentials: ${err}`);
+          callback.callbackWithParam(null)
+        } else {
+          if (session.isValid()) {
+            callback.callbackWithParam(session.getRefreshToken());
+          }
+        }
+      })
+    }
 }

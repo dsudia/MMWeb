@@ -1,4 +1,5 @@
 export class RegistrationUser {
+    id: string
     firstName: string;
     lastName: string;
     email: string;
@@ -6,10 +7,12 @@ export class RegistrationUser {
     confpass: string;
     username: string;
     isTeacher: boolean;
-    id: string;
-    constructor(isTeacher: boolean, id: string, lastName?: string) {
+    constructor(id: string, isTeacher: boolean, lastName?: string) {
       this.isTeacher = isTeacher;
       this.id = id;
+      if (lastName) {
+        this.lastName = lastName;
+      }
     }
 }
 

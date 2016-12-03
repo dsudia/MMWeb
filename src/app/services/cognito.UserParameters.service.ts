@@ -7,11 +7,11 @@ export default class UserParametersService {
         const cognitoUser = CognitoUtil.getCurrentUser();
 
         if (cognitoUser !== null) {
-            cognitoUser.getSession(function(err, session) {
+            cognitoUser.getSession(function paramsServiceGetSession(err, session) {
                 if (err) {
                     console.log('Could not retrieve the user.');
                 } else {
-                    cognitoUser.getUserAttributes(function(error, result) {
+                    cognitoUser.getUserAttributes(function paramsServiceGetAtts(error, result) {
                         if (error) {
                             console.log(`Error in parameters: ${error}`);
                         } else {

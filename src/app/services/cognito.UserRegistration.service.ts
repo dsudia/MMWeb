@@ -11,18 +11,18 @@ export default class UserRegistrationService {
     constructor(@Inject(CognitoUtil) public cognitoConfigs: CognitoUtil) {}
 
     register(user: RegistrationUser, callback: CognitoCallback): void {
-        console.log(`user: ${user}`);
+        console.log(user)
+
+        let isTeacher = 0
+        if (user.isTeacher === true) {
+          isTeacher = 1
+        }
 
         const attributeList = [];
 
         const dataEmail = {
             Name: 'email',
             Value: user.email
-        };
-
-        const dataUsername = {
-            Name: 'preferred_username',
-            Value: user.username
         };
 
         const dataFirstName = {
@@ -36,42 +36,41 @@ export default class UserRegistrationService {
         };
 
         const dataIsTeacher = {
-            Name: 'isTeacher',
-            Value: user.isTeacher
+            Name: 'custom:isTeacher',
+            Value: isTeacher.toString()
         }
 
-        const dataId = {
-            Name: 'id',
+        const dataID = {
+            Name: 'custom:id',
             Value: user.id
         }
 
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail));
-        attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataFirstName));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataLastName));
         attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataIsTeacher));
-        attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataId));
+        attributeList.push(new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataID));
 
-        CognitoUtil.getUserPool().signUp(user.email, user.password, attributeList, null, function(err, result) {
+        CognitoUtil.getUserPool().signUp(user.username, user.password, attributeList, null, function signUpCallback(err, result) {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {
-                UserLoginService.authenticate(user.email, user.password, callback)
+                UserLoginService.authenticate(user.username, user.password, callback)
                 console.log(`registered user: ${result}`)
                 callback.cognitoCallback(null, result);
             }
         });
     }
 
-    confirmRegistration(username: string, confirmationCode: string, callback: CognitoCallback): void {
+    confirmRegistration(email: string, confirmationCode: string, callback: CognitoCallback): void {
         const userData = {
-            Username: username,
+            Username: email,
             Pool: CognitoUtil.getUserPool()
         };
 
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
-        cognitoUser.confirmRegistration(function(err, result) {
+        cognitoUser.confirmRegistration(function confRegCallback(err, result) {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {
@@ -88,7 +87,7 @@ export default class UserRegistrationService {
 
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
-        cognitoUser.resendConfirmationCode(function(err, result) {
+        cognitoUser.resendConfirmationCode(function resendConfCallback(err, result) {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {

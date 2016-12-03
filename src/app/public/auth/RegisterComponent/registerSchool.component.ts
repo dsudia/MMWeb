@@ -27,7 +27,7 @@ export default class RegisterSchoolComponent implements CognitoCallback {
 
   onInit() {
     const id = uuid()
-    this.registrationUser = new RegistrationUser(false, id, `school`);
+    this.registrationUser = new RegistrationUser(id, false, `school`);
     this.errorMessage = null;
   }
 

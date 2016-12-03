@@ -27,7 +27,7 @@ export default class RegisterTeacherComponent implements CognitoCallback {
 
   onInit() {
     const id = uuid()
-    this.registrationUser = new RegistrationUser(true, id);
+    this.registrationUser = new RegistrationUser(id, true);
     this.errorMessage = null;
   }
 
@@ -42,7 +42,7 @@ export default class RegisterTeacherComponent implements CognitoCallback {
       console.log(`result: ${this.errorMessage}`)
     } else {
       console.log(`redirecting`)
-      this.router.navigate([`/home/login`], result.user.username)
+      this.router.navigate([`/login`], result.user.username)
     }
   }
 }

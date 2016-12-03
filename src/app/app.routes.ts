@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './public/landing.component';
 import { LegalComponent } from './public/legal.component';
 import LoginComponent from './public/auth/LoginComponent/login.component';
+import MyProfileComponent from './secure/MyProfile/myProfile.component';
 import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
 import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
 
@@ -35,6 +36,13 @@ const authRoutes: Routes = [
   }
 ]
 
+const secureRoutes: Routes = [
+  {
+    path: 'myprofile',
+    component: MyProfileComponent
+  }
+]
+
 const legalRoutes: Routes = [
     {
         path: 'legal',
@@ -49,7 +57,8 @@ const routes: Routes = [
         children: [
             ...authRoutes,
             ...landingRoutes,
-            ...legalRoutes
+            ...legalRoutes,
+            ...secureRoutes
         ]
     }
 ];

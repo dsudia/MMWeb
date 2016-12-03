@@ -20,7 +20,7 @@ export default class MyProfileComponent implements LoggedInCallback {
 
     isLoggedIn(message: string, loggedIn: boolean) {
         if (!loggedIn) {
-            this.router.navigate(['/home/login']);
+            this.router.navigate(['/login']);
         } else {
             UserParametersService.getParameters(new GetParametersCallback(this))
         }

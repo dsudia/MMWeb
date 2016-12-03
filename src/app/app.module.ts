@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './public/landing.component';
 import { LegalComponent } from './public/legal.component';
 import LoginComponent from './public/auth/LoginComponent/login.component';
+import MyProfileComponent from './secure/MyProfile/myProfile.component'
 import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
 import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
 import AWSUtil from './services/aws.service'
@@ -22,8 +23,9 @@ import { routing } from './app.routes';
     LandingComponent,
     LegalComponent,
     LoginComponent,
+    MyProfileComponent,
     RegisterSchoolComponent,
-    RegisterTeacherComponent
+    RegisterTeacherComponent,
   ],
   imports: [
     BrowserModule,
