@@ -40,15 +40,17 @@ export default class AWSUtil {
       if (isLoggedIn) {
         console.log(`User is logged in`);
 
+
         CognitoUtil.getIdToken({
           callback() {},
           callbackWithParam(idToken: any) {
+            console.log('about to call addCognitoCredentials')
             AWSUtil.addCognitoCredentials(idToken);
           }
         });
-        console.log(`Retrieving the id token`);
       } else {
         console.log(`User is not logged in`);
+        console.log('creating new credentials in setupAWS')
         AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
           IdentityPoolId: CognitoUtil._IDENTITY_POOL_ID
         });
@@ -64,10 +66,19 @@ export default class AWSUtil {
     static addCognitoCredentials(idTokenJwt: string): void {
       let params = AWSUtil.getCognitoParametersForIdConsolidation(idTokenJwt);
 
+      console.log(params)
+
+      console.log('creating new credentials in addCognitoCredentials');
       AWS.config.credentials = new AWS.CognitoIdentityCredentials(params);
       AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials(params);
 
+      console.log(AWS.config.credentials)
       AWS.config.credentials.get(function getCredentialsCallback(err) {
+        console.log('tried to get credentials in addCognitoCredentials')
+        if (err) {
+          console.log('Error in getting credentials: ')
+          console.log(err)
+        }
         if (!err) {
           // var id = AWS.config.credentials.identityId;
           if (AWSUtil.firstLogin) {
@@ -79,8 +90,8 @@ export default class AWSUtil {
 
     public static getCognitoParametersForIdConsolidation(idTokenJwt: string): {} {
       console.log(`enter getCognitoParametersForIdConsolidation()`);
-      const url = `cogntio-idp.${CognitoUtil._REGION.toLowerCase()}.amazonaws.com/${CognitoUtil._USER_POOL_ID}`;
-      let logins: string[] = [];
+      const url = `cognito-idp.${CognitoUtil._REGION.toLowerCase()}.amazonaws.com/${CognitoUtil._USER_POOL_ID}`;
+      let logins: any = {};
       logins[url] = idTokenJwt;
       const params = {
         IdentityPoolId: CognitoUtil._IDENTITY_POOL_ID,

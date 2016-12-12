@@ -20,7 +20,7 @@ export interface Callback {
 export class CognitoUtil {
     public static _REGION = 'us-east-1';
 
-    public static _IDENTITY_POOL_ID = 'us-east-1:1589ee70-aa37-4e78-a753-05ecdd3689a3';
+    public static _IDENTITY_POOL_ID = 'us-east-1:1aad2c04-bdfd-46e3-becd-bd12f1aeb73a';
     public static _USER_POOL_ID = 'us-east-1_ANxSTN6XS';
     public static _CLIENT_ID = '61hk09r83e3vhcgu5pner49q3v';
 
@@ -30,7 +30,9 @@ export class CognitoUtil {
     }
 
     public static getUserPool() {
-        return new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(CognitoUtil._POOL_DATA);
+        console.log('getting user pool')
+        const pool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(CognitoUtil._POOL_DATA);
+        return pool
     }
 
     public static getCurrentUser() {
@@ -38,6 +40,7 @@ export class CognitoUtil {
     }
 
     public static getCognitoIdentity(): string {
+        console.log('getting cognito identity')
         return AWS.config.credentials.identityId;
     }
 
@@ -67,6 +70,7 @@ export class CognitoUtil {
           callback.callbackWithParam(null)
         } else {
           if (session.isValid()) {
+            console.log('getting jwt token')
             callback.callbackWithParam(session.getIdToken().getJwtToken());
           } else {
             console.log(`Got the id token, but the session isn't valid`);

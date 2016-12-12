@@ -16,6 +16,7 @@ export default class UserLoginService {
             Password: password
         };
 
+        console.log('creating authentication details in UserLoginService')
         const authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(authenticationData);
 
         const userData = {
@@ -24,6 +25,7 @@ export default class UserLoginService {
         };
 
         console.log('Authenticating the user...');
+        console.log('creating new cognitoUser in UserLoginService')
         let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         console.log(AWS.config)
@@ -44,6 +46,7 @@ export default class UserLoginService {
             Pool: CognitoUtil.getUserPool()
         };
 
+        console.log('creating new cognitoUser in forgotPassword')
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         cognitoUser.forgotPassword({
@@ -65,6 +68,7 @@ export default class UserLoginService {
             Pool: CognitoUtil.getUserPool()
         };
 
+        console.log('creating new cognitoUser in confirmNewPassword')
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         cognitoUser.forgotPassword({

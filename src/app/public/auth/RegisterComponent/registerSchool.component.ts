@@ -41,8 +41,8 @@ export default class RegisterSchoolComponent implements CognitoCallback {
       this.errorMessage = message;
       console.log(`result: ${this.errorMessage}`)
     } else {
-      console.log(`redirecting`)
-      this.router.navigate([`/myprofile`], result.user.username)
+      console.log(`redirecting to confirmation page`)
+      this.router.navigate([`/confirm`], result.user.username)
     }
   }
 }

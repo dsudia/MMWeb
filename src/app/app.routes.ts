@@ -4,10 +4,12 @@ import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './public/landing.component';
 import { LegalComponent } from './public/legal.component';
+import ConfirmRegistrationComponent from './public/auth/ConfirmComponent/confirm.component';
 import LoginComponent from './public/auth/LoginComponent/login.component';
 import MyProfileComponent from './secure/MyProfile/myProfile.component';
 import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
 import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
+import ResendCodeComponent from './public/auth/ResendComponent/resend.component'
 
 const landingRoutes: Routes = [
     {
@@ -33,6 +35,14 @@ const authRoutes: Routes = [
   {
       path: 'register-teacher',
       component: RegisterTeacherComponent
+  },
+  {
+      path: 'confirm',
+      component: ConfirmRegistrationComponent
+  },
+  {
+      path: 'resendCode',
+      component: ResendCodeComponent
   }
 ]
 

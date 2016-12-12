@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { RegistrationUser } from '../types/classes';
 import { CognitoCallback, CognitoUtil } from './cognitoUtil.service'
-import UserLoginService from './cognito.UserLogin.service'
 
 declare let AWS: any;
 declare let AWSCognito: any
@@ -55,7 +54,6 @@ export default class UserRegistrationService {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {
-                UserLoginService.authenticate(user.username, user.password, callback)
                 console.log(`registered user: ${result}`)
                 callback.cognitoCallback(null, result);
             }
@@ -68,9 +66,10 @@ export default class UserRegistrationService {
             Pool: CognitoUtil.getUserPool()
         };
 
+        console.log('creating new congitoUser in confirmRegistration')
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
-        cognitoUser.confirmRegistration(function confRegCallback(err, result) {
+        cognitoUser.confirmRegistration(confirmationCode, true, function confRegCallback(err, result) {
             if (err) {
                 callback.cognitoCallback(err.message, null);
             } else {
@@ -85,6 +84,7 @@ export default class UserRegistrationService {
             Pool: CognitoUtil.getUserPool()
         };
 
+        console.log('creating new CognitoUser in resendCode')
         const cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
 
         cognitoUser.resendConfirmationCode(function resendConfCallback(err, result) {
