@@ -13,8 +13,7 @@ export default class ResendCodeComponent implements CognitoCallback {
   regService: UserRegistrationService;
   router: Router;
 
-  constructor(registrationService: UserRegistrationService, router: Router) {
-    this.regService = registrationService;
+  constructor(private registrationService: UserRegistrationService, router: Router) {
     this.router = router;
   }
 

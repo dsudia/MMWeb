@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid'
 import UserRegistrationService from '../../../services/cognito.UserRegistration.service'
@@ -13,19 +13,16 @@ import { RegistrationUser } from '../../../types/classes'
   selector: `app-register`,
   templateUrl: './register-school.html'
 })
-export default class RegisterSchoolComponent implements CognitoCallback {
+export default class RegisterSchoolComponent implements CognitoCallback, OnInit {
   registrationUser: RegistrationUser;
   router: Router;
   errorMessage: string
-  userRegistration: UserRegistrationService
 
-  constructor(configs: CognitoUtil, userRegistration: UserRegistrationService, router: Router) {
+  constructor(private configs: CognitoUtil, private userRegistration: UserRegistrationService, router: Router) {
     this.router = router;
-    this.userRegistration = userRegistration;
-    this.onInit();
   }
 
-  onInit() {
+  ngOnInit() {
     const id = uuid()
     this.registrationUser = new RegistrationUser(id, false, `school`);
     this.errorMessage = null;

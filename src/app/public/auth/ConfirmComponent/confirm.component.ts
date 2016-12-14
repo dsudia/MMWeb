@@ -9,25 +9,22 @@ import UserRegistrationService from '../../../services/cognito.UserRegistration.
 })
 export default class ConfirmRegistrationComponent implements OnInit, OnDestroy {
   confirmationCode: string;
-  email: string;
+  username: string;
   errorMessage: string;
   private sub: any;
-  route: ActivatedRoute;
-  regService: UserRegistrationService;
-  router: Router
-  configs: CognitoUtil
+  router: Router;
 
-  constructor(configs: CognitoUtil, regService: UserRegistrationService, router: Router, route: ActivatedRoute) {
-    this.route = route;
-    this.regService = regService;
-    this.router = router;
-    this.configs = configs;
-  }
+  constructor(private configs: CognitoUtil,
+              private regService: UserRegistrationService,
+              router: Router,
+              private route: ActivatedRoute) {
+                this.router = router;
+              }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.email = params['email'];
-    })
+    console.log(this.route.snapshot.params)
+    this.username = this.route.snapshot.params['username']
+    this.sub = this.route.params.subscribe(params => {})
   }
 
   ngOnDestroy() {
@@ -36,7 +33,7 @@ export default class ConfirmRegistrationComponent implements OnInit, OnDestroy {
 
   onConfirmRegistration() {
     this.errorMessage = null;
-    this.regService.confirmRegistration(this.email, this.confirmationCode, this);
+    this.regService.confirmRegistration(this.username, this.confirmationCode, this);
   }
 
   cognitoCallback(message: string, result: any) {

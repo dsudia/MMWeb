@@ -37,7 +37,7 @@ const authRoutes: Routes = [
       component: RegisterTeacherComponent
   },
   {
-      path: 'confirm',
+      path: 'confirm/:username',
       component: ConfirmRegistrationComponent
   },
   {

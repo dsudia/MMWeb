@@ -12,7 +12,6 @@ export default class LoginComponent implements CognitoCallback, LoggedInCallback
     password: string;
     errorMessage: string;
     router: Router;
-    configs: CognitoUtil;
 
     isLoggedIn(message: string, isLoggedIn: boolean) {
         if (isLoggedIn) {
@@ -20,9 +19,8 @@ export default class LoginComponent implements CognitoCallback, LoggedInCallback
         }
     }
 
-    constructor(configs: CognitoUtil, router: Router) {
+    constructor(private configs: CognitoUtil, router: Router) {
         console.log('LoginComponent constructor');
-        this.configs = configs;
         this.router = router;
     }
 
