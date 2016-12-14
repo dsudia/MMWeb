@@ -24,7 +24,9 @@ export default class ConfirmRegistrationComponent implements OnInit, OnDestroy {
   ngOnInit() {
     console.log(this.route.snapshot.params)
     this.username = this.route.snapshot.params['username']
-    this.sub = this.route.params.subscribe(params => {})
+    this.sub = this.route.params.subscribe(params => {
+      this.username = params['username']
+    })
   }
 
   ngOnDestroy() {
