@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { InformationComponent } from './public/information.component';
 import { LandingComponent } from './public/landing.component';
 import { LegalComponent } from './public/legal.component';
 import ConfirmRegistrationComponent from './public/auth/ConfirmComponent/confirm.component';
@@ -20,6 +21,10 @@ const landingRoutes: Routes = [
     {
         path: 'landing',
         component: LandingComponent
+    },
+    {
+        path: 'information',
+        component: InformationComponent
     }
 ];
 

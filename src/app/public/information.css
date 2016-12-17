@@ -1,0 +1,63 @@
+main {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    height: 90%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+    display: flex;
+}
+
+#user {
+    height: 65%;
+}
+
+#description {
+    height: 35%;
+    width: 60%;
+    margin: auto;
+    padding-top: 1.5rem;
+    flex-flow: column;
+    /*display: none;*/
+}
+
+article {
+    width: 49%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    cursor: pointer;
+}
+
+article h1 {
+    margin: auto;
+    color: white;
+}
+
+#description h1 {
+  color: black;
+  margin: auto;
+}
+
+#teacher {
+    background: url('app/public/images/teachers/weekend_work.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 1%;
+}
+
+#school {
+    background: url('app/public/images/schools/books.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.display-none {
+  display: none;
+}

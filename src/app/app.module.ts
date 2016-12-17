@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { InformationComponent } from './public/information.component';
 import { LandingComponent } from './public/landing.component';
 import { LegalComponent } from './public/legal.component';
 import ConfirmRegistrationComponent from './public/auth/ConfirmComponent/confirm.component';
@@ -23,6 +24,7 @@ import { routing } from './app.routes';
   declarations: [
     AppComponent,
     ConfirmRegistrationComponent,
+    InformationComponent,
     LandingComponent,
     LegalComponent,
     LoginComponent,
