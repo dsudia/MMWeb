@@ -17,6 +17,9 @@
     ],
     "label-position": true,
     "label-undefined": true,
+    "max-classes-per-file": [true, 1],
+    "max-file-line-count": [true, 500],
+    "no-require-imports": true,
     "max-line-length": [
       true,
       140
@@ -32,6 +35,7 @@
     "no-console": [
       true,
       "debug",
+      "log",
       "info",
       "time",
       "timeEnd",
@@ -54,6 +58,7 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
+    "switch-default": true,
     "one-line": [
       true,
       "check-open-brace",
@@ -67,7 +72,7 @@
     ],
     "radix": true,
     "semicolon": [
-      "always"
+      ""
     ],
     "triple-equals": [
       true,
@@ -103,6 +108,8 @@
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
     "no-input-rename": true,
+    "no-internal-module": true,
+    "no-var-requires": true,
     "no-output-rename": true,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
