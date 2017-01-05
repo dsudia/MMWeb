@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { InformationComponent } from './public/information.component';
-import { LandingComponent } from './public/landing.component';
-import { LegalComponent } from './public/legal.component';
+import { InformationComponent } from './public/InformationComponent/information.component';
+import { LandingComponent } from './public/LandingComponent/landing.component';
+import { LegalComponent } from './public/LegalComponent/legal.component';
 import ConfirmRegistrationComponent from './public/auth/ConfirmComponent/confirm.component';
 import LoginComponent from './public/auth/LoginComponent/login.component';
 import MyProfileComponent from './secure/MyProfile/myProfile.component'
