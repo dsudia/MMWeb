@@ -7,7 +7,7 @@ import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-myprofile',
-    templateUrl: './myprofile.html'
+    templateUrl: './my-profile.html'
 })
 export default class MyProfileComponent implements LoggedInCallback {
     parameters: Parameters[] = [];

@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { InformationComponent } from './public/InformationComponent/information.component';
-import { LandingComponent } from './public/LandingComponent/landing.component';
-import { LegalComponent } from './public/LegalComponent/legal.component';
-import ConfirmRegistrationComponent from './public/auth/ConfirmComponent/confirm.component';
-import LoginComponent from './public/auth/LoginComponent/login.component';
-import MyProfileComponent from './secure/MyProfile/myProfile.component'
-import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
-import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
-import ResendCodeComponent from './public/auth/ResendComponent/resend.component'
+import { InformationComponent } from './public/information/information.component';
+import { LandingComponent } from './public/landing/landing.component';
+import { LegalComponent } from './public/legal/legal.component';
+import ConfirmRegistrationComponent from './public/auth/confirm/confirm.component';
+import LoginComponent from './public/auth/login/login.component';
+import MyProfileComponent from './secure/my-profile/my-profile.component'
+import RegisterSchoolComponent from './public/auth/register/register-school.component';
+import RegisterTeacherComponent from './public/auth/register/register-teacher.component';
+import ResendCodeComponent from './public/auth/resend/resend.component'
 import AWSUtil from './services/aws.service'
 import { CognitoUtil } from './services/cognitoUtil.service'
 import UserLoginService from './services/cognito.UserLogin.service'
