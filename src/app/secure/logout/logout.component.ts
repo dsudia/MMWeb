@@ -11,6 +11,9 @@ import UserLoginService from '../../services/cognito.UserLogin.service';
 export default class LogoutComponent implements LoggedInCallback {
 
   constructor(public router: Router) {
+  }
+
+  logout() {
     UserLoginService.isAuthenticated(this)
   }
 
