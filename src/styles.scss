@@ -10,6 +10,12 @@ green ~ 40f200
 red ~ f20000
 brown ~ 7c4d26
 */
+
+@import './assets/styles/bourbon/bourbon';
+@import './assets/styles/neat/neat';
+@import './assets/styles/base/base';
+@import './assets/styles/animate/animate';
+
 html {
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
