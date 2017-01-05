@@ -7,7 +7,7 @@ import { LandingComponent } from './public/LandingComponent/landing.component';
 import { LegalComponent } from './public/LegalComponent/legal.component';
 import ConfirmRegistrationComponent from './public/auth/ConfirmComponent/confirm.component';
 import LoginComponent from './public/auth/LoginComponent/login.component';
-import MyProfileComponent from './secure/MyProfile/myProfile.component';
+import MyProfileComponent from './secure/my-profile/my-profile.component';
 import RegisterSchoolComponent from './public/auth/RegisterComponent/registerSchool.component';
 import RegisterTeacherComponent from './public/auth/RegisterComponent/registerTeacher.component';
 import ResendCodeComponent from './public/auth/ResendComponent/resend.component'
