@@ -19,6 +19,7 @@ import UserLoginService from './services/cognito.UserLogin.service'
 import UserParametersService from './services/cognito.UserParameters.service'
 import UserRegistrationService from './services/cognito.UserRegistration.service'
 import { routing } from './app.routes';
+import LogoutComponent from './secure/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +29,12 @@ import { routing } from './app.routes';
     LandingComponent,
     LegalComponent,
     LoginComponent,
+    LogoutComponent,
     MyProfileComponent,
     RegisterSchoolComponent,
     RegisterTeacherComponent,
-    ResendCodeComponent
+    ResendCodeComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
